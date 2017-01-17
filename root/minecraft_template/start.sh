@@ -12,9 +12,6 @@ fi
 if [ ! -f ${MCJAR} ]; then
 	curl -o ${MCJAR} ${MCJARURL}
 fi
-if [ ! -f ${FORGEJAR} ] && [ "$ENABLEFORGE" ]; then
-	curl -o ${FORGEJAR} ${FORGEJARURL}
-fi
 if [ ! -f ${LAUNCHWRAPPERJAR} ]; then
 	mkdir -p $(dirname ${LAUNCHWRAPPERJAR})
 	curl -o ${LAUNCHWRAPPERJAR} ${LAUNCHWRAPPERJARURL}

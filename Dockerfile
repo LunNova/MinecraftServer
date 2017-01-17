@@ -3,7 +3,6 @@ MAINTAINER Ross Allan <docker@nallar.me>
 
 ENV LANG=C.UTF-8 \
 MCVER=1.10.2 \
-FORGEVER=1.10.2-12.18.3.2185 \
 ENABLEFORGE=false \
 LAUNCHWRAPPERVERSION=1.12 \
 MCEULA=true \
@@ -14,7 +13,6 @@ MCJAR=minecraft_server.jar \
 FORGEJAR=minecraft_forge.jar
 
 ENV MCJARURL https://s3.amazonaws.com/Minecraft.Download/versions/${MCVER}/minecraft_server.${MCVER}.jar
-ENV FORGEJARURL https://files.minecraftforge.net/maven/net/minecraftforge/forge/${FORGEVER}/forge-${FORGEVER}-universal.jar
 ENV LAUNCHWRAPPERFQNAME net/minecraft/launchwrapper/${LAUNCHWRAPPERVERSION}/launchwrapper-${LAUNCHWRAPPERVERSION}.jar
 ENV LAUNCHWRAPPERJAR libraries/${LAUNCHWRAPPERFQNAME}
 ENV LAUNCHWRAPPERJARURL https://libraries.minecraft.net/${LAUNCHWRAPPERFQNAME}
