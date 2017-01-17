@@ -1,7 +1,5 @@
 #!/bin/bash
 cp /minecraft_template/* /minecraft/
-ls -l /minecraft_template
-ls -l /minecraft
 if [ "$FIXPERMISSIONS"="true" ]; then
 	chown -R minecraft /minecraft
 fi
