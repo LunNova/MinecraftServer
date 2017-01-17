@@ -33,7 +33,7 @@ start_server() {
 		exit
 	fi
 	
-	java -server ${JAVAPARAMETERS} -jar ${STARTJAR} nogui
+	java -server ${JAVAPARAMETERS} -jar ${STARTJAR} nogui &> logs/console.txt
 }
 
 # Autogenerate eula if needed
