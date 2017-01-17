@@ -9,7 +9,7 @@ MCEULA=true \
 AUTORESTART=true \
 JAVAPARAMETERS="-Xms4G -Xmx4G -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+AggressiveOpts -XX:+DisableExplicitGC" \
 FIX_PERMISSIONS=true \
-MCJAR=minecraft_server.jar \
+MCJAR=minecraft_server.VER.jar \
 FORGEJAR=minecraft_forge.jar
 
 ENV MCJARURL https://s3.amazonaws.com/Minecraft.Download/versions/${MCVER}/minecraft_server.${MCVER}.jar
