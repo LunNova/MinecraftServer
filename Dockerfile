@@ -8,6 +8,7 @@ LAUNCHWRAPPERVERSION=1.12 \
 MCEULA=true \
 AUTORESTART=true \
 JAVAPARAMETERS="-Xms4G -Xmx4G -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:+AggressiveOpts -XX:+DisableExplicitGC" \
+JARPARAMETERS="nogui" \
 FIX_PERMISSIONS=true \
 MCJAR=minecraft_server.VER.jar \
 FORGEJAR=minecraft_forge.jar
