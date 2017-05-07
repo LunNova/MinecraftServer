@@ -33,6 +33,7 @@ start_server() {
 		exit
 	fi
 	
+	echo "java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS}"
 	java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS} &> logs/console.txt
 }
 
