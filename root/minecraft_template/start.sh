@@ -70,10 +70,6 @@ if eula_false ; then
 	exit
 fi
 
-echo "Starting server"
-rm -f autostart.stamp
-start_server
-
 while true ; do
 	rm -f autostart.stamp
 	echo "Starting server"
