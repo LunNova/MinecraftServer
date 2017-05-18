@@ -17,20 +17,24 @@ eula_false() {
 	return $?
 }
 
+stop=false
 _term() { 
 	echo "Caught SIGTERM signal, forwarding to $mc" 
 	kill -TERM "$mc"
 	wait $mc
+	stop=true
 }
 _int() { 
 	echo "Caught SIGINT signal, forwarding to $mc" 
 	kill -INT "$mc"
 	wait $mc
+	stop=true
 }
 _hup() { 
 	echo "Caught SIGHUP signal, forwarding to $mc" 
 	kill -HUP "$mc"
 	wait $mc
+	stop=true
 }
 
 trap _term SIGTERM
@@ -76,7 +80,7 @@ while true ; do
 	start_server
 	echo "Server process finished"
 	
-	if ([ ! -e autostart.stamp ] && [ ! "$AUTORESTART"="true" ]) || [ -f stop.stamp ]; then
+	if ([ ! -e autostart.stamp ] && [ ! "$AUTORESTART"="true" ]) || [ -f stop.stamp ] || [ "$stop" = true ] ; then
 		echo "Exiting"
 		rm -f stop.stamp
 		exit
