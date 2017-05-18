@@ -17,6 +17,26 @@ eula_false() {
 	return $?
 }
 
+_term() { 
+	echo "Caught SIGTERM signal, forwarding to $mc" 
+	kill -TERM "$mc"
+	wait $mc
+}
+_int() { 
+	echo "Caught SIGINT signal, forwarding to $mc" 
+	kill -INT "$mc"
+	wait $mc
+}
+_hup() { 
+	echo "Caught SIGHUP signal, forwarding to $mc" 
+	kill -HUP "$mc"
+	wait $mc
+}
+
+trap _term SIGTERM
+trap _int SIGINT
+trap _hup SIGHUP
+
 start_server() {
 	STARTJAR=${MCJAR}
 	if [ "$ENABLEFORGE"="true" ]; then
@@ -34,7 +54,10 @@ start_server() {
 	fi
 	
 	echo "java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS}"
-	java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS} &> logs/console.txt
+	java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS} &> logs/console.txt &
+	
+	mc=$!
+	wait $mc
 }
 
 # Autogenerate eula if needed
