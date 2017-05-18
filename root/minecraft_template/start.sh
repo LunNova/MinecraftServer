@@ -4,11 +4,6 @@
 # Ensure working directory is correct
 cd /minecraft
 
-# Override ENV settings from file if it exists
-if [ -f environment.sh ]; then
-	. ./environment.sh
-fi
-
 if [ ! -f ${MCJAR} ]; then
 	curl -o ${MCJAR} ${MCJARURL}
 fi
@@ -31,6 +26,11 @@ start_server() {
 	if [ ! -f ${STARTJAR} ]; then
 		echo "Missing startup jar $STARTJAR"
 		exit
+	fi
+	
+	# Override ENV settings from file if it exists
+	if [ -f environment.sh ]; then
+		. ./environment.sh
 	fi
 	
 	echo "java -server ${JAVAPARAMETERS} -jar ${STARTJAR} ${JARPARAMETERS}"

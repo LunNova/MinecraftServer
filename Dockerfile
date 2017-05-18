@@ -23,4 +23,4 @@ RUN chmod +x /root/*.sh && /bin/sh /root/install.sh
 
 VOLUME /minecraft
 
-ENTRYPOINT ["/sbin/tini", "-g", "-v", "--", "/root/init.sh"]
+ENTRYPOINT ["/sbin/tini", "-v", "--", "/root/init.sh"]
